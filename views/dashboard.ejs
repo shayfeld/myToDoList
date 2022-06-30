@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ToDo List</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="/static/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">ToDo List</h1>
+                                        <% if(locals.errors){ %> 
+                                            <% errors.forEach(function(error) { %>
+                                              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <%= error.msg %>
+                                              </div>
+                                            <% }); %> 
+                                          <% } %> 
+                                        <form class="user" action="/" method="POST">
+                                            <div class="form-group">
+                                                    <input
+                                                    type="itemName"
+                                                    id="itemName"
+                                                    name="itemName"
+                                                    class="form-control form-control-user"
+                                                    placeholder="Add New Item"
+                                                    onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57)"
+                                                    value="<%= typeof itemName != 'undefined' ? itemName : '' %>"
+                                                    />
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="btn btn-info btn-user btn-block" name="itemStyle" id="itemStyle">
+                                                    <option class="bg-primary text-white" value="card border-primary bg-primary text-white">Important</option>
+                                                    <option class="bg-secondary text-white" value="card border-secondary bg-secondary text-white">Sad</option>
+                                                    <option class="bg-success text-white" value="card border-success bg-success text-white">Good</option>
+                                                    <option class="bg-danger text-white" value="card border-danger bg-danger text-white">Bad</option>
+                                                    <option class="bg-light text-dark" value="card border-light bg-light text-dark">Regular</option>
+                                                  </select>
+                                            </div>   
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                                    Add
+                                                    </button>
+                                            </div>
+                                        </form>
+                                        <hr>
+                                        <div class="form-group row">
+                                            <%treatmentList?.forEach((item, index) => {%>
+                                                <div class="text-left col-sm-9 mb-3 mb-sm-0 <%= item.itemStyle %> p-2 mt-2">
+                                                    <div class="custom-control custom-checkbox small">
+                                                        <input type="checkbox" class="custom-control-input" id="customCheck<%= index %>">
+                                                        <label class="custom-control-label" for="customCheck<%= index %>"><%= item.itemName %></label>
+                                                    </div>
+                                               </div>
+                                               <div class="col-sm-1"></div>
+                                                <div class="col-sm-2 mb-3 mb-sm-0 bg-danger mt-2 card border-danger">
+                                                    <a href="/deleteItem/<%= item._id%>" class="btn btn-danger">
+                                                        <span class="text-gradient">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <br></br>
+                                            <%})%>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+
+    </script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/static/js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
