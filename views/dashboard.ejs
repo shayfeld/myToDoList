@@ -74,10 +74,7 @@
                                         <div class="form-group row">
                                             <%treatmentList?.forEach((item, index) => {%>
                                                 <div class="text-left col-sm-9 mb-3 mb-sm-0 <%= item.itemStyle %> p-2 mt-2">
-                                                    <div class="custom-control custom-checkbox small">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheck<%= index %>">
-                                                        <label class="custom-control-label" for="customCheck<%= index %>"><%= item.itemName %></label>
-                                                    </div>
+                                                    <%= item.itemName %>
                                                </div>
                                                <div class="col-sm-1"></div>
                                                 <div class="col-sm-2 mb-3 mb-sm-0 bg-danger mt-2 card border-danger">

@@ -5,7 +5,6 @@ const { ensureAuthenticated } = require('../config/auth');
 // Models
 const User = require('../models/User');
 const Item = require('../models/Item');
-const Treatment = require('../models/Treatment');
 
 // Welcome page
 router.get('/',(req, res)=>{
