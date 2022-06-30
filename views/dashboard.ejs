@@ -73,11 +73,11 @@
                                         <hr>
                                         <div class="form-group row">
                                             <%treatmentList?.forEach((item, index) => {%>
-                                                <div class="text-left col-sm-9 mb-3 mb-sm-0 <%= item.itemStyle %> p-2 mt-2">
+                                                <div class="text-left col-sm-9 mb-3 mb-sm-0 col-8 <%= item.itemStyle %> p-2 mt-2">
                                                     <%= item.itemName %>
                                                </div>
-                                               <div class="col-sm-1"></div>
-                                                <div class="col-sm-2 mb-3 mb-sm-0 bg-danger mt-2 card border-danger">
+                                               <div class="col-sm-1 col-1"></div>
+                                                <div class="col-sm-2 mb-3 mb-sm-0 col-2 bg-danger mt-2 card border-danger">
                                                     <a href="/deleteItem/<%= item._id%>" class="btn btn-danger">
                                                         <span class="text-gradient">
                                                             <i class="fas fa-trash"></i>
